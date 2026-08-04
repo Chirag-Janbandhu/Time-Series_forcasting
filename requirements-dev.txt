@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+yfinance
+statsmodels
+scikit-learn
+pmdarima
+ipykernel
+uv 
