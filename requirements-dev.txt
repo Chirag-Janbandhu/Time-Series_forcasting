@@ -1,5 +1,24 @@
-# Development & notebook dependencies
-# Install these in addition to requirements.txt for development work
+# ── Install requirements.txt first, then this file for notebook development ───
+# pip install -r requirements.txt -r requirements-dev.txt
 
+# ── Statistical & time-series modeling (notebooks only) ───────────────────────
+statsmodels>=0.14.0
+pmdarima>=2.0.4
+
+# ── Extra visualization (notebooks only) ──────────────────────────────────────
+matplotlib>=3.7.0
+seaborn>=0.13.0
+
+# ── Progress bar (notebooks only) ─────────────────────────────────────────────
+tqdm>=4.66.0
+
+# ── Excel export (notebooks only) ─────────────────────────────────────────────
+openpyxl>=3.1.0
+scipy>=1.11.0
+
+# ── Market calendar (notebooks only) ──────────────────────────────────────────
+pandas-market-calendars>=4.3.1
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
 ipykernel>=6.25.0
 jupyter>=1.0.0
