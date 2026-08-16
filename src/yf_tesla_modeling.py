@@ -1,4 +1,3 @@
-# arima_modeler.py
 
 import pandas as pd
 import pmdarima as pm
@@ -20,7 +19,6 @@ def find_best_arima_params(train_series):
     """
     print("Running auto_arima to find the best model parameters...")
     
-    # The function now correctly uses the 'train_series' argument passed to it
     auto_arima_model = pm.auto_arima(
         train_series, 
         start_p=1, start_q=1,
@@ -33,7 +31,6 @@ def find_best_arima_params(train_series):
     )
     return auto_arima_model
 
-# ... (your other functions like train_arima_model, etc.)
 
 def train_arima_model(train_data, order):
     """
@@ -99,9 +96,8 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 
 
-# --- 2. Create Sequences ---
-# This function converts our data into input sequences (X) and an output value (y).
-# This is your create_dataset function
+# Convert dataset into sequences of lookback window size
+
 def create_dataset(dataset, time_step=60):
     dataX, dataY = [], []
     for i in range(len(dataset) - time_step):
@@ -109,7 +105,6 @@ def create_dataset(dataset, time_step=60):
         dataX.append(a)
         dataY.append(dataset[i + time_step, 0])
     return np.array(dataX), np.array(dataY)
-# In a file like lstm_modeler.py
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
@@ -194,8 +189,8 @@ def predict_and_evaluate_lstm(trained_model, X_test, y_test, scaler, test_index,
     y_test_actual = scaler.inverse_transform(y_test.reshape(-1, 1))
 
     # 3. Align the forecast with the correct datetime index
-    # THIS IS THE LINE TO FIX:
-    # Use the length of the predictions to create an index of the exact same size.
+    # Create index matching prediction sequence length
+
     forecast_index = test_index[time_step : len(lstm_forecast) + time_step]
     forecast_df = pd.DataFrame(lstm_forecast, index=forecast_index, columns=['Forecast'])
 

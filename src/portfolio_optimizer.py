@@ -28,12 +28,13 @@ def prepare_optimization_inputs(prices_df, forecast_df):
     # Calculate the annualized sample covariance matrix of returns
     S = risk_models.sample_cov(prices_df)
     
-    # --- This section now prints all required inputs ---
+    # Print optimization inputs
     print("--- Inputs for Optimization ---")
     print("Expected Annual Returns (mu):")
     print(mu)
     print("\nCovariance Matrix (S):")
-    print(S)  # This line prints the covariance matrix
+    print(S)
+
     
     return mu, S
 
@@ -44,12 +45,12 @@ def find_optimal_portfolios(mu, S):
     # Max Sharpe Ratio Portfolio
     ef_sharpe = EfficientFrontier(mu, S)
     weights_sharpe = ef_sharpe.max_sharpe()
-    ef_sharpe.portfolio_performance(verbose=True) # verbose=True prints the performance
+    ef_sharpe.portfolio_performance(verbose=True)
     
     # Minimum Volatility Portfolio
     ef_min_vol = EfficientFrontier(mu, S)
     weights_min_vol = ef_min_vol.min_volatility()
-    ef_min_vol.portfolio_performance(verbose=True) # verbose=True prints the performance
+    ef_min_vol.portfolio_performance(verbose=True)
 
     print("\n--- Max Sharpe Ratio Portfolio Weights ---")
     print(ef_sharpe.clean_weights())
