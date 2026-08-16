@@ -1,15 +1,12 @@
 # ── Core ──────────────────────────────────────────────────────────────────────
-numpy==1.26.4
-pandas>=2.0.0,<3.0.0
+pandas>=2.0.0
+scipy>=1.11.0
 
 # ── Data extraction ───────────────────────────────────────────────────────────
 yfinance>=0.2.40
 
-# ── Deep learning (pinned — tensorflow-cpu 2.15.x is compatible with numpy 1.x)
-tensorflow-cpu==2.15.1
-
 # ── ML preprocessing ──────────────────────────────────────────────────────────
-scikit-learn>=1.3.0,<2.0.0
+scikit-learn>=1.3.0
 
 # ── Portfolio optimization ────────────────────────────────────────────────────
 pyportfolioopt>=1.5.5
