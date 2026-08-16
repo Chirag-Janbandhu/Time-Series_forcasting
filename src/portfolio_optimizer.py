@@ -70,7 +70,7 @@ def plot_efficient_frontier(mu, S, perf_sharpe, perf_min_vol):
     for r in risk_range:
         try:
             returns.append(ef.efficient_risk(r))
-        except:
+        except Exception:
             continue
             
     fig = go.Figure()

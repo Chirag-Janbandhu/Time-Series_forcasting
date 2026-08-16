@@ -1,9 +1,10 @@
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from statsmodels.tsa.stattools import adfuller
-import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+import pandas_market_calendars as mcal
 def clean_and_understand_data(df):
     """
     Cleans and provides an initial understanding of Yahoo Finance multi-ticker data.
@@ -133,7 +134,6 @@ def eda_volatility_analysis(df, ticker='TSLA'):
     else:
         print("=> Fail to reject null hypothesis: Daily returns are non-stationary.")
 
-from statsmodels.tsa.stattools import adfuller
 
 def adf_test(series, series_name='Series'):
     """
@@ -201,8 +201,6 @@ def plot_acf_pacf(series, lags=40):
     plot_pacf(series, lags=lags)
     plt.show()
 
-import numpy as np
-import pandas as pd
 
 # Note: The get_stock_data function has been removed as we are using a pre-existing DataFrame.
 
@@ -273,11 +271,6 @@ def analyze_and_report_metrics(df, ticker):
     print("-" * 30)
 
 
-import pandas as pd
-import pandas_market_calendars as mcal
-
-# If you don't have this library, install it first:
-# pip install pandas_market_calendars
 
 def clean_trading_days(df):
     """

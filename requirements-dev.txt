@@ -1,9 +1,5 @@
-numpy
-pandas
-matplotlib
-yfinance
-statsmodels
-scikit-learn
-pmdarima
-ipykernel
-uv 
+# Development & notebook dependencies
+# Install these in addition to requirements.txt for development work
+
+ipykernel>=6.25.0
+jupyter>=1.0.0
