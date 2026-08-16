@@ -38,7 +38,7 @@ def calculate_performance_metrics(returns_series, risk_free_rate=0.02):
 
 def plot_backtest_results(strategy_value_df, benchmark_value_df):
     """
-    [cite_start]Generates an interactive Plotly chart of the backtest performance. [cite: 231]
+    Plots cumulative portfolio values for the strategy and benchmark side by side.
     """
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=strategy_value_df.index, y=strategy_value_df, mode='lines', name='My Strategy Portfolio'))

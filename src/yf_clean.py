@@ -5,6 +5,8 @@ import seaborn as sns
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import pandas_market_calendars as mcal
+
+
 def clean_and_understand_data(df):
     """
     Cleans and provides an initial understanding of Yahoo Finance multi-ticker data.
@@ -22,8 +24,6 @@ def clean_and_understand_data(df):
     -------
     pd.DataFrame : cleaned DataFrame
     """
-    import pandas as pd
-
     print("\n--- Dataset Info ---")
     print(df.info())
 
@@ -303,5 +303,3 @@ def clean_trading_days(df):
     clean_df = df[df['Date'].dt.date.isin(valid_trading_days)].copy()
     
     return clean_df
-
-# --- Example of how to use the function ---
